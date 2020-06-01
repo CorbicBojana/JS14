@@ -1,0 +1,31 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+@import "fonts";
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.4rem;
+  font-family: 'Nunito Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.col {
+  width: 50%;
+}
