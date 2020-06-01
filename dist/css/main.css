@@ -52,11 +52,15 @@ body {
 .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center; }
 
 .col {
-  width: 50%; }
+  width: 20%; }
+
+h2, h3 {
+  color: white;
+  font-weight: 800; }
 
 .header {
   height: 8rem;
@@ -67,9 +71,7 @@ body {
   justify-content: space-between;
   align-items: center; }
   .header h2 {
-    font-size: 1.8rem;
-    color: white;
-    font-weight: 800; }
+    font-size: 2.2rem; }
   .header .button {
     display: inline-block;
     background-color: transparent;
@@ -78,3 +80,40 @@ body {
     letter-spacing: 0.1rem;
     border: none;
     outline: none; }
+
+.main {
+  padding: 0 8rem; }
+  .main .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 5rem;
+    height: 6rem; }
+    .main .container .form {
+      width: 40%; }
+      .main .container .form .form_input {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.4rem;
+        border: none;
+        outline: none;
+        padding: 1.5rem 2.5rem;
+        background-color: #2b3945;
+        color: white;
+        font-size: 1.4rem; }
+  .main .col {
+    margin-top: 5rem;
+    background-color: #2b3945;
+    border-radius: 0.4rem;
+    overflow: hidden; }
+    .main .col h3 {
+      font-size: 1.8rem;
+      margin: 2.5rem 2rem; }
+    .main .col .list {
+      margin: 0 2rem 3rem; }
+      .main .col .list .list_item {
+        display: block;
+        margin-bottom: 1rem;
+        color: white; }
+        .main .col .list .list_item span {
+          color: #858585; }
