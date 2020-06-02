@@ -16,7 +16,6 @@ body {
   font-size: 1.4rem;
   font-family: 'Nunito Sans', sans-serif;
   overflow-x: hidden;
-  background-color: $dark_mode_background;
 }
 
 .row {
@@ -31,14 +30,68 @@ body {
 }
 
 h2, h3 {
-  color: $white_color;
   font-weight: 800;
+}
+
+.theme_dark {
+  background-color: $dark_mode_background;
+
+  .header {
+    background-color: $dark_mode_elements;
+
+    .button {
+      color: $white_color;
+    }
+  }
+
+  .form_input {
+    background-color: $dark_mode_elements;
+  }
+
+  .col {
+    background-color: $dark_mode_elements;
+
+    h2, h3 {
+      color: $white_color;
+    }
+
+    .list_item {
+      color: $white_color;
+    }
+  }
+}
+
+.theme_light {
+  background-color: $light_mode_background;
+
+  .header {
+    background-color: $white_color;
+
+    .button {
+      color: $light_mode_text;
+    }
+  }
+
+  .form_input {
+    background-color: $white_color;
+  }
+
+  .col {
+    background-color: $white_color;
+
+    h2, h3 {
+      color: $light_mode_text;
+    }
+
+    .list_item {
+      color: $light_mode_text;
+    }
+  }
 }
 
 // HEADER 
 .header {
   height: 8rem;
-  background-color: $dark_mode_elements;
   padding: 0 8rem;
   display: flex;
   flex-wrap: wrap;
@@ -52,8 +105,6 @@ h2, h3 {
   .button {
     display: inline-block;
     background-color: transparent;
-    color: $white_color;
-    font-weight: 300;
     letter-spacing: 0.1rem;
     border: none;
     outline: none;
@@ -73,6 +124,15 @@ h2, h3 {
 
     .form {
       width: 40%;
+      position: relative;
+
+      img {
+        position: absolute;
+        height: 2rem;;
+        top: 50%;
+        left: 2.5rem;
+        transform: translatey(-50%);        
+      }
 
       .form_input {
         width: 100%;
@@ -81,16 +141,18 @@ h2, h3 {
         border: none;
         outline: none;
         padding: 1.5rem 2.5rem;
-        background-color: $dark_mode_elements;
         color: $white_color;
         font-size: 1.4rem;
+
+        &::placeholder {
+          padding: 1.5rem 2.5rem 1.5rem 4.5rem;
+        }
       }
     }
   }
 
   .col {
     margin-top: 5rem;
-    background-color: $dark_mode_elements;
     border-radius: 0.4rem;
     overflow: hidden;
 
@@ -105,7 +167,6 @@ h2, h3 {
       .list_item {
         display: block;
         margin-bottom: 1rem;
-        color: $white_color;
 
         span {
           color: $light_mode_input;

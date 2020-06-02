@@ -46,8 +46,7 @@ html {
 body {
   font-size: 1.4rem;
   font-family: 'Nunito Sans', sans-serif;
-  overflow-x: hidden;
-  background-color: #202c37; }
+  overflow-x: hidden; }
 
 .row {
   display: flex;
@@ -59,12 +58,40 @@ body {
   width: 20%; }
 
 h2, h3 {
-  color: white;
   font-weight: 800; }
+
+.theme_dark {
+  background-color: #202c37; }
+  .theme_dark .header {
+    background-color: #2b3945; }
+    .theme_dark .header .button {
+      color: white; }
+  .theme_dark .form_input {
+    background-color: #2b3945; }
+  .theme_dark .col {
+    background-color: #2b3945; }
+    .theme_dark .col h2, .theme_dark .col h3 {
+      color: white; }
+    .theme_dark .col .list_item {
+      color: white; }
+
+.theme_light {
+  background-color: #fafafa; }
+  .theme_light .header {
+    background-color: white; }
+    .theme_light .header .button {
+      color: #111517; }
+  .theme_light .form_input {
+    background-color: white; }
+  .theme_light .col {
+    background-color: white; }
+    .theme_light .col h2, .theme_light .col h3 {
+      color: #111517; }
+    .theme_light .col .list_item {
+      color: #111517; }
 
 .header {
   height: 8rem;
-  background-color: #2b3945;
   padding: 0 8rem;
   display: flex;
   flex-wrap: wrap;
@@ -75,8 +102,6 @@ h2, h3 {
   .header .button {
     display: inline-block;
     background-color: transparent;
-    color: white;
-    font-weight: 300;
     letter-spacing: 0.1rem;
     border: none;
     outline: none; }
@@ -90,7 +115,14 @@ h2, h3 {
     margin-top: 5rem;
     height: 6rem; }
     .main .container .form {
-      width: 40%; }
+      width: 40%;
+      position: relative; }
+      .main .container .form img {
+        position: absolute;
+        height: 2rem;
+        top: 50%;
+        left: 2.5rem;
+        transform: translatey(-50%); }
       .main .container .form .form_input {
         width: 100%;
         height: 100%;
@@ -98,12 +130,12 @@ h2, h3 {
         border: none;
         outline: none;
         padding: 1.5rem 2.5rem;
-        background-color: #2b3945;
         color: white;
         font-size: 1.4rem; }
+        .main .container .form .form_input::placeholder {
+          padding: 1.5rem 2.5rem 1.5rem 4.5rem; }
   .main .col {
     margin-top: 5rem;
-    background-color: #2b3945;
     border-radius: 0.4rem;
     overflow: hidden; }
     .main .col h3 {
@@ -113,7 +145,6 @@ h2, h3 {
       margin: 0 2rem 3rem; }
       .main .col .list .list_item {
         display: block;
-        margin-bottom: 1rem;
-        color: white; }
+        margin-bottom: 1rem; }
         .main .col .list .list_item span {
           color: #858585; }
