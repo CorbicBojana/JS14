@@ -51,8 +51,8 @@ body {
 .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 5rem; }
 
 .col {
   width: 20%; }
@@ -171,7 +171,7 @@ h2, h3 {
         .main .container .form .form_input::placeholder {
           padding: 1.5rem 2.5rem 1.5rem 4.5rem; }
   .main .col {
-    margin: 5rem 0 0 7.5rem;
+    margin: 5rem 0 0 8.5rem;
     border-radius: 0.4rem;
     overflow: hidden;
     box-shadow: 0 0 1rem 0.1rem #858585; }
@@ -194,3 +194,19 @@ h2, h3 {
         margin-bottom: 1rem; }
         .main .col .list .list_item span {
           color: #858585; }
+
+@media only screen and (max-width: 780px) {
+  .col {
+    width: 100%; }
+  .header, .main {
+    padding: 0 3rem; }
+  .main .container {
+    margin-top: 4rem; }
+    .main .container .form {
+      width: 100%; }
+    .main .container .filter {
+      margin-top: 7rem; }
+  .main .row {
+    margin-top: 10rem; }
+    .main .row .col {
+      margin: 5rem 4rem 0; } }

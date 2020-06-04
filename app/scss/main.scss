@@ -21,8 +21,8 @@ body {
 .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
+  margin-bottom: 5rem;
 }
 
 .col {
@@ -210,7 +210,7 @@ h2, h3 {
   }
 
   .col {
-    margin: 5rem 0 0 7.5rem;
+    margin: 5rem 0 0 8.5rem;
     border-radius: 0.4rem;
     overflow: hidden;
     box-shadow: 0 0 1rem 0.1rem $light_mode_input;
@@ -249,3 +249,5 @@ h2, h3 {
     }
   }
 }
+
+@import "media";

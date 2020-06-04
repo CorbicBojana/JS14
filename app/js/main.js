@@ -21,7 +21,6 @@ buttonFilter.addEventListener("click", function() {
     if (showLIstFilter == false) {
         listFilter.style.display = "block";
         showLIstFilter = true;
-
     } else {
         listFilter.style.display = "none";
         showLIstFilter = false
@@ -65,22 +64,68 @@ for (i=0; i < listFilterItems.length; i++) {
         .then(
             function displayResults(resp) {    
                 console.log(resp)
-                resp.map( region => 
-                row.innerHTML += `
-                <div class="col">
-                  <div class="container_img">
-                    <img src=${region.flag} alt="germany" />
-                  </div>
-                  <h3>${region.name}</h3>
-                  <ul class="list">
-                    <li class="list_item">Population: <span>${region.population}</span></li>
-                    <li class="list_item">Region: <span>${region.region}</span></li>
-                    <li class="list_item">Capital: <span>${region.capital}</span></li>
-                  </ul>
-                </div>
-                ` 
-                )
+                row.innerHTML = "";
+                if (resp.status == 404) {
+                  alert("Not found!")
+                }
+                else {
+                  resp.map( region => 
+                    row.innerHTML += `
+                    <div class="col">
+                      <div class="container_img">
+                        <img src=${region.flag} alt="germany" />
+                      </div>
+                      <h3>${region.name}</h3>
+                      <ul class="list">
+                        <li class="list_item">Population: <span>${region.population}</span></li>
+                        <li class="list_item">Region: <span>${region.region}</span></li>
+                        <li class="list_item">Capital: <span>${region.capital}</span></li>
+                      </ul>
+                    </div>
+                    ` 
+                    )
+                }
             }
         )
     })
 }
+
+// Search country
+const form = document.getElementById("form");
+const formInput = document.getElementById("form_input");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  var name = formInput.value;
+  fetch(`${url}name/${name}`)
+  .then((resp) => resp.json()) // Transform the data into json
+  .then(
+      function displayResults(resp) {
+        console.log(resp.status)
+        if (resp.status == 404) {
+          alert("Not found!");
+        }
+        else {
+          resp.map( country => 
+            row.innerHTML = `
+            <div class="col">
+              <div class="container_img">
+                <img src=${country.flag} alt="germany" />
+              </div>
+              <h3>${country.name}</h3>
+              <ul class="list">
+                <li class="list_item">Population: <span>${country.population}</span></li>
+                <li class="list_item">Region: <span>${country.region}</span></li>
+                <li class="list_item">Capital: <span>${country.capital}</span></li>
+              </ul>
+            </div>
+            ` 
+            )
+        }
+      }
+  )
+  .catch(err => {
+    console.log(err)
+  }
+ )
+})
