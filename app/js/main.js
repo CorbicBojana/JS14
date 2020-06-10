@@ -31,14 +31,16 @@ buttonFilter.addEventListener("click", function() {
 const row = document.getElementById("row");
 const url = "https://restcountries.eu/rest/v2/";
 
-(function  getResults() {
+(function getResults() {
 fetch(`${url}all`)
 .then((resp) => resp.json()) // Transform the data into json
 .then(
     function displayResults(resp) {
+      const col = document.getElementsByClassName("col");
+
         resp.map( country => 
         row.innerHTML += `
-        <div class="col">
+        <div id="col" class="col">
           <div class="container_img">
             <img src=${country.flag} alt="germany" />
           </div>
@@ -49,8 +51,13 @@ fetch(`${url}all`)
             <li class="list_item">Capital: <span>${country.capital}</span></li>
           </ul>
         </div>
-        ` 
-        )
+        `
+        );
+        for (y=0; y < col.length; y++) {
+          col[y].addEventListener("click", function(resp) {
+            console.log(resp)
+          })
+        }
     }
 )
 }());
@@ -71,7 +78,7 @@ for (i=0; i < listFilterItems.length; i++) {
                 else {
                   resp.map( region => 
                     row.innerHTML += `
-                    <div class="col">
+                    <div id="col" class="col">
                       <div class="container_img">
                         <img src=${region.flag} alt="germany" />
                       </div>
@@ -108,7 +115,7 @@ form.addEventListener("submit", function(e) {
         else {
           resp.map( country => 
             row.innerHTML = `
-            <div class="col">
+            <div id="col" class="col">
               <div class="container_img">
                 <img src=${country.flag} alt="germany" />
               </div>
@@ -128,4 +135,4 @@ form.addEventListener("submit", function(e) {
     console.log(err)
   }
  )
-})
+});

@@ -195,6 +195,19 @@ h2, h3 {
         .main .col .list .list_item span {
           color: #858585; }
 
+.modal .row {
+  margin-top: 5rem;
+  padding: 0 2rem; }
+  .modal .row .button {
+    padding: 1.5rem 4rem;
+    background-color: red;
+    border-radius: 0.4rem; }
+  .modal .row .col {
+    margin: 12rem 0 8rem;
+    box-shadow: none; }
+    .modal .row .col .container_img {
+      height: 44rem; }
+
 @media only screen and (max-width: 780px) {
   .col {
     width: 100%; }
