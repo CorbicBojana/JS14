@@ -66,6 +66,38 @@ let resultHTML = "";
         const element = e.target.closest(".col");
         const country = JSON.parse(decodeURIComponent(element.dataset.country));
         console.log(country);
+
+        resultHTML = `
+        <button class="button">&#8592;Back</button>
+        <div id="col" class="col">
+          <div class="container_img">
+            <img src=${country.flag} alt="germany" />
+          </div>
+          <h3>${country.name}</h3>
+          <ul class="list">
+            <li class="list_item">Native Name: <span>${country.nativeName}</span></li>
+            <li class="list_item">Population: <span>${country.population}</span></li>
+            <li class="list_item">Region: <span>${country.region}</span></li>
+            <li class="list_item">Sub Region: <span>${country.subregion}</span></li>
+            <li class="list_item">Capital: <span>${country.capital}</span></li>
+          </ul>
+          <ul class="list">
+            <li class="list_item">Top Level Domain: <span>${country.topLevelDomain}</span></li>
+            <li class="list_item">Currencies: <span>${country.currencies.map(item =>
+              item.name             
+              )}</span></li>
+            <li class="list_item">Languages: <span>${country.languages.map(item => 
+              item.name              
+              )}</span></li>
+          </ul>
+          <ul class="list">
+            <li class="list_item">${country.borders.map(item =>
+              item              
+              )}</li>
+          </ul>
+        </div>
+        `;
+        row.innerHTML = resultHTML;
       });
     });
 })();
