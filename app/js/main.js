@@ -31,36 +31,44 @@ buttonFilter.addEventListener("click", function() {
 const row = document.getElementById("row");
 const url = "https://restcountries.eu/rest/v2/";
 
+let resultHTML = "";
+
 (function getResults() {
-fetch(`${url}all`)
-.then((resp) => resp.json()) // Transform the data into json
-.then(
-    function displayResults(resp) {
+  fetch(`${url}all`)
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function displayResults(resp) {
       const col = document.getElementsByClassName("col");
 
-        resp.map( country => 
-        row.innerHTML += `
-        <div id="col" class="col">
+      resp.map(
+        (country) =>
+          (resultHTML += `
+        <div  data-country=${encodeURIComponent(
+          JSON.stringify(country)
+        )} id="col" class="col">
           <div class="container_img">
             <img src=${country.flag} alt="germany" />
           </div>
           <h3>${country.name}</h3>
           <ul class="list">
-            <li class="list_item">Population: <span>${country.population}</span></li>
+            <li class="list_item">Population: <span>${
+              country.population
+            }</span></li>
             <li class="list_item">Region: <span>${country.region}</span></li>
             <li class="list_item">Capital: <span>${country.capital}</span></li>
           </ul>
         </div>
-        `
-        );
-        for (y=0; y < col.length; y++) {
-          col[y].addEventListener("click", function(resp) {
-            console.log(resp)
-          })
-        }
-    }
-)
-}());
+        `)
+      );
+
+      row.innerHTML = resultHTML;
+
+      row.addEventListener("click", function (e) {
+        const element = e.target.closest(".col");
+        const country = JSON.parse(decodeURIComponent(element.dataset.country));
+        console.log(country);
+      });
+    });
+})();
 
 // Change region
 for (i=0; i < listFilterItems.length; i++) {
@@ -71,13 +79,13 @@ for (i=0; i < listFilterItems.length; i++) {
         .then(
             function displayResults(resp) {    
                 console.log(resp)
-                row.innerHTML = "";
+                resultHTML = "";
                 if (resp.status == 404) {
                   alert("Not found!")
                 }
                 else {
                   resp.map( region => 
-                    row.innerHTML += `
+                    resultHTML += `
                     <div id="col" class="col">
                       <div class="container_img">
                         <img src=${region.flag} alt="germany" />
@@ -91,6 +99,8 @@ for (i=0; i < listFilterItems.length; i++) {
                     </div>
                     ` 
                     )
+
+                  row.innerHTML = resultHTML;
                 }
             }
         )
@@ -114,7 +124,7 @@ form.addEventListener("submit", function(e) {
         }
         else {
           resp.map( country => 
-            row.innerHTML = `
+            resultHTML = `
             <div id="col" class="col">
               <div class="container_img">
                 <img src=${country.flag} alt="germany" />
@@ -127,7 +137,9 @@ form.addEventListener("submit", function(e) {
               </ul>
             </div>
             ` 
-            )
+            );
+
+          row.innerHTML = resultHTML;
         }
       }
   )
