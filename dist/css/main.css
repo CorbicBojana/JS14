@@ -70,8 +70,6 @@ body {
   padding: 1.5rem 3.5rem;
   font-size: 1.4rem;
   text-decoration: none;
-  background-color: #2b3945;
-  color: white;
   box-shadow: 0 0 1rem 0.1rem #858585; }
 
 h2 {
@@ -85,7 +83,7 @@ h2, h3 {
 
 .theme_dark {
   background-color: #202c37; }
-  .theme_dark h2, .theme_dark h3, .theme_dark .button {
+  .theme_dark h2, .theme_dark h3, .theme_dark .button, .theme_dark .button_link {
     color: white; }
   .theme_dark .header {
     background-color: #2b3945;
@@ -100,10 +98,12 @@ h2, h3 {
     background-color: #2b3945; }
     .theme_dark .col .list_item {
       color: white; }
+  .theme_dark .col_country {
+    color: white; }
 
 .theme_light {
   background-color: #fafafa; }
-  .theme_light h2, .theme_light h3, .theme_light .button {
+  .theme_light h2, .theme_light h3, .theme_light .button, .theme_light .button_link {
     color: #111517; }
   .theme_light .header {
     background-color: white; }
@@ -117,6 +117,8 @@ h2, h3 {
     background-color: white; }
     .theme_light .col .list_item {
       color: #111517; }
+  .theme_light .col_country {
+    color: #111517; }
 
 .header {
   height: 8rem;
@@ -215,8 +217,7 @@ h2, h3 {
     margin-left: 5rem; }
   .main .col_country {
     width: 50%;
-    margin-top: 7.5rem;
-    color: white; }
+    margin-top: 7.5rem; }
     .main .col_country h2 {
       margin-bottom: 3rem; }
     .main .col_country .container_img {

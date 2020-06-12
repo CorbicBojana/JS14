@@ -43,8 +43,6 @@ body {
   padding: 1.5rem 3.5rem;
   font-size: 1.4rem;
   text-decoration: none;
-  background-color: $dark_mode_elements;
-  color: $white_color;
   box-shadow: 0 0 1rem 0.1rem $light_mode_input;
 }
 
@@ -63,7 +61,7 @@ h2, h3 {
 .theme_dark {
   background-color: $dark_mode_background;
 
-  h2, h3, .button {
+  h2, h3, .button, .button_link {
     color: $white_color;
   }
 
@@ -91,12 +89,16 @@ h2, h3 {
       color: $white_color;
     }
   }
+
+  .col_country {
+    color: $white_color;
+  }
 }
 
 .theme_light {
   background-color: $light_mode_background;
 
-  h2, h3, .button {
+  h2, h3, .button, .button_link {
     color: $light_mode_text;
   }
 
@@ -122,6 +124,10 @@ h2, h3 {
     .list_item {
       color: $light_mode_text;
     }
+  }
+
+  .col_country {
+    color: $light_mode_text;
   }
 }
 
@@ -278,7 +284,6 @@ h2, h3 {
   .col_country {
     width: 50%;
     margin-top: 7.5rem;
-    color: $white_color;
 
     h2 {
       margin-bottom: 3rem;
