@@ -250,4 +250,16 @@ h2, h3 {
   .main .row {
     margin-top: 10rem; }
     .main .row .col {
-      margin: 5rem 4rem 0; } }
+      margin: 5rem 4rem 0; }
+    .main .row .col_country {
+      width: 100%; }
+      .main .row .col_country:first-child {
+        margin-top: 0; }
+      .main .row .col_country .container_img {
+        height: auto; }
+      .main .row .col_country .col_country_list {
+        flex-direction: column; }
+        .main .row .col_country .col_country_list .list {
+          margin-bottom: 8rem; }
+    .main .row .margin_left {
+      margin-left: 0; } }

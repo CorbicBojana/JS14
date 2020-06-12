@@ -28,6 +28,30 @@
             .col {
                 margin: 5rem 4rem 0;
             }
+
+            .col_country {
+                width: 100%;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                .container_img {
+                    height: auto;
+                }
+
+                .col_country_list {
+                    flex-direction: column;
+
+                    .list {
+                        margin-bottom: 8rem;
+                    }
+                }
+            }
+
+            .margin_left {
+                margin-left: 0;
+            }
         }
     }
 }
