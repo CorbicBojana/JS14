@@ -97,9 +97,9 @@ let resultHTML = "";
           </ul>
         </div>
         <ul class="list margin_left">
-          <li class="list_item">Border Countries: ${country.borders.map(item =>
-            `<span class="button_link">${item}</span>`              
-            )}</li>
+          <li class="list_item">Border Countries: ${country.borders.reduce((acc, curr) => {
+            return acc +`<span class="button_link">${curr}</span>`
+          },"")}</li>
         </ul>
         </div>
         </div>
