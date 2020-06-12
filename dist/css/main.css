@@ -219,6 +219,11 @@ h2, h3 {
     color: white; }
     .main .col_country h2 {
       margin-bottom: 3rem; }
+    .main .col_country .container_img {
+      height: 40rem; }
+      .main .col_country .container_img img {
+        height: 100%;
+        width: 100%; }
     .main .col_country .col_country_list {
       display: flex; }
       .main .col_country .col_country_list .list {
