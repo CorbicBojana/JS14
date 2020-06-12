@@ -29,6 +29,7 @@ buttonFilter.addEventListener("click", function() {
 
 // API
 const row = document.getElementById("row");
+const main = document.getElementById("main");
 const url = "https://restcountries.eu/rest/v2/";
 
 let resultHTML = "";
@@ -67,13 +68,17 @@ let resultHTML = "";
         const country = JSON.parse(decodeURIComponent(element.dataset.country));
         console.log(country);
 
-        resultHTML = `
-        <button class="button">&#8592;Back</button>
-        <div id="col" class="col">
+        main.innerHTML = `
+        <a href="" class="button_link">&#8592;<span>Back</span></a>
+        <div class="row">
+        <div class="col_country">
           <div class="container_img">
             <img src=${country.flag} alt="germany" />
           </div>
-          <h3>${country.name}</h3>
+        </div>
+        <div class="col_country">
+        <h2 class="margin_left">${country.name}</h2>
+        <div class="col_country_list margin_left">
           <ul class="list">
             <li class="list_item">Native Name: <span>${country.nativeName}</span></li>
             <li class="list_item">Population: <span>${country.population}</span></li>
@@ -90,11 +95,13 @@ let resultHTML = "";
               item.name              
               )}</span></li>
           </ul>
-          <ul class="list">
-            <li class="list_item">${country.borders.map(item =>
-              item              
-              )}</li>
-          </ul>
+        </div>
+        <ul class="list margin_left">
+          <li class="list_item">Border Countries: ${country.borders.map(item =>
+            `<span class="button_link">${item}</span>`              
+            )}</li>
+        </ul>
+        </div>
         </div>
         `;
         row.innerHTML = resultHTML;
