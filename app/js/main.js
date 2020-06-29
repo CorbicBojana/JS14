@@ -2,16 +2,19 @@ const buttonTheme = document.getElementById("button_theme");
 const buttonFilter = document.getElementById("button_filter");
 const listFilter = document.getElementById("list_filter");
 const listFilterItems = document.getElementsByClassName("list_filter_item");
-var showLIstFilter = false;
+const imgLight = document.getElementById("img_light");
+let showLIstFilter = false;
 
 // Function to toggle between light and dark theme
 function toggleTheme() {
     if (document.body.classList.contains("theme_light")){
         document.body.classList.add("theme_dark");
-        document.body.classList.remove("theme_light")
+        document.body.classList.remove("theme_light");
+        imgLight.style.display = "none";
     } else {
         document.body.classList.add("theme_light");
-        document.body.classList.remove("theme_dark")
+        document.body.classList.remove("theme_dark");
+        imgLight.style.display = "inline-block";
     }
  }
 
@@ -152,12 +155,22 @@ const formInput = document.getElementById("form_input");
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
-  var name = formInput.value;
-  fetch(`${url}name/${name}`)
+
+  let urlCountry = "";
+  let name = formInput.value;
+  console.log(name)
+
+  if (name === "") {
+    urlCountry =  `${url}all`
+  } else {
+    urlCountry = `${url}name/${name}`
+  }
+
+  fetch(`${urlCountry}`)
   .then((resp) => resp.json()) // Transform the data into json
   .then(
       function displayResults(resp) {
-        console.log(resp.status)
+        console.log(resp)
         if (resp.status == 404) {
           alert("Not found!");
         }
@@ -178,7 +191,7 @@ form.addEventListener("submit", function(e) {
             ` 
             );
 
-          row.innerHTML = resultHTML;
+          row.innerHTML += resultHTML;
         }
       }
   )

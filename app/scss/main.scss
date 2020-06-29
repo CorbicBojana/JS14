@@ -214,7 +214,7 @@ h2, h3 {
       border-radius: 0.4rem;
       box-shadow: 0 0 1rem 0.1rem $light_mode_input;
 
-      img {
+      .img_search {
         position: absolute;
         height: 2rem;;
         top: 50%;
@@ -222,18 +222,18 @@ h2, h3 {
         transform: translatey(-50%);        
       }
 
+      .img_light {
+        display: none;
+      }
+
       .form_input {
         width: 100%;
         height: 100%;
         border: none;
         outline: none;
-        padding: 1.5rem 2.5rem;
+        padding: 1.5rem 2.5rem 1.5rem 6rem;
         color: $white_color;
         font-size: 1.4rem;
-
-        &::placeholder {
-          padding: 1.5rem 2.5rem 1.5rem 4.5rem;
-        }
       }
     }
   }
