@@ -100,6 +100,8 @@ h2, h3 {
       color: white; }
   .theme_dark .col_country {
     color: white; }
+  .theme_dark .form_input {
+    color: white; }
 
 .theme_light {
   background-color: #fafafa; }
@@ -118,6 +120,8 @@ h2, h3 {
     .theme_light .col .list_item {
       color: #111517; }
   .theme_light .col_country {
+    color: #111517; }
+  .theme_light .form_input {
     color: #111517; }
 
 .header {
@@ -188,7 +192,6 @@ h2, h3 {
         border: none;
         outline: none;
         padding: 1.5rem 2.5rem 1.5rem 6rem;
-        color: white;
         font-size: 1.4rem; }
   .main .col {
     margin: 5rem 0 0 8.5rem;

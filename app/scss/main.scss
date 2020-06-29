@@ -93,6 +93,10 @@ h2, h3 {
   .col_country {
     color: $white_color;
   }
+
+  .form_input {
+    color: $white_color;
+  }
 }
 
 .theme_light {
@@ -127,6 +131,10 @@ h2, h3 {
   }
 
   .col_country {
+    color: $light_mode_text;
+  }
+
+  .form_input {
     color: $light_mode_text;
   }
 }
@@ -232,7 +240,6 @@ h2, h3 {
         border: none;
         outline: none;
         padding: 1.5rem 2.5rem 1.5rem 6rem;
-        color: $white_color;
         font-size: 1.4rem;
       }
     }

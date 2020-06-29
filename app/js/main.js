@@ -37,7 +37,7 @@ const url = "https://restcountries.eu/rest/v2/";
 
 let resultHTML = "";
 
-(function getResults() {
+function getResults() {
   fetch(`${url}all`)
     .then((resp) => resp.json()) // Transform the data into json
     .then(function displayResults(resp) {
@@ -110,7 +110,9 @@ let resultHTML = "";
         row.innerHTML = resultHTML;
       });
     });
-})();
+};
+
+getResults();
 
 // Change region
 for (i=0; i < listFilterItems.length; i++) {
@@ -153,6 +155,13 @@ for (i=0; i < listFilterItems.length; i++) {
 const form = document.getElementById("form");
 const formInput = document.getElementById("form_input");
 
+formInput.addEventListener("change", function(e) {
+  console.log(e.target.value)
+  if (e.target.value == "") {
+    getResults();
+  }
+})
+
 form.addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -191,7 +200,7 @@ form.addEventListener("submit", function(e) {
             ` 
             );
 
-          row.innerHTML += resultHTML;
+          row.innerHTML = resultHTML;
         }
       }
   )
