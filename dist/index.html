@@ -14,7 +14,10 @@
 
   <header class="header">
     <h2>Where in the world?</h2>
-    <button id="button_theme" class="button"><img src="./images/moon.svg" alt="moon" />Dark Mode</button>
+    <button id="button_theme" class="button">
+      <img id="img_light" class="img_moon img_light" src="./images/moon_light.svg" alt="moon" />
+      <img id="img_dark" class="img_moon img_dark" src="./images/moon.svg" alt="moon" />Dark Mode
+    </button>
   </header>
 
   <main id="main"class="main">
@@ -22,7 +25,7 @@
     <div class="container">
       <form id="form" class="form">
         <img class="img_search"src="./images/search.svg" />
-        <img id="img_light" class="img_search img_light"src="./images/search_light.svg" />
+        <img id="img__light" class="img_search img_light"src="./images/search_light.svg" />
         <input id="form_input" class="form_input" type="text" placeholder="Search for a country..." />
       </form>
       <div class="filter">
@@ -43,7 +46,7 @@
 
   </main>
 
-  <script src="../app/js/main.js"></script>
+  <script src="./js/main.min.js"></script>
 
 </body>
 </html>

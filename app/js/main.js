@@ -3,6 +3,8 @@ const buttonFilter = document.getElementById("button_filter");
 const listFilter = document.getElementById("list_filter");
 const listFilterItems = document.getElementsByClassName("list_filter_item");
 const imgLight = document.getElementById("img_light");
+const imgDark = document.getElementById("img_dark");
+const imgLigh = document.getElementById("img__light");
 let showLIstFilter = false;
 
 // Function to toggle between light and dark theme
@@ -11,10 +13,14 @@ function toggleTheme() {
         document.body.classList.add("theme_dark");
         document.body.classList.remove("theme_light");
         imgLight.style.display = "none";
+        imgDark.style.display = "inline-block";
+        imgLigh.style.display = "none";
     } else {
         document.body.classList.add("theme_light");
         document.body.classList.remove("theme_dark");
         imgLight.style.display = "inline-block";
+        imgDark.style.display = "none";
+        imgLigh.style.display = "inline-block";
     }
  }
 
@@ -155,27 +161,20 @@ for (i=0; i < listFilterItems.length; i++) {
 const form = document.getElementById("form");
 const formInput = document.getElementById("form_input");
 
-formInput.addEventListener("change", function(e) {
-  console.log(e.target.value)
-  if (e.target.value == "") {
+formInput.addEventListener("input", function(e) {
+
+  if (!formInput.value) {
+    resultHTML = "";
     getResults();
-  }
-})
+  } 
+});
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
 
-  let urlCountry = "";
   let name = formInput.value;
-  console.log(name)
 
-  if (name === "") {
-    urlCountry =  `${url}all`
-  } else {
-    urlCountry = `${url}name/${name}`
-  }
-
-  fetch(`${urlCountry}`)
+  fetch(`${url}name/${name}`)
   .then((resp) => resp.json()) // Transform the data into json
   .then(
       function displayResults(resp) {
@@ -200,7 +199,7 @@ form.addEventListener("submit", function(e) {
             ` 
             );
 
-          row.innerHTML = resultHTML;
+            row.innerHTML = resultHTML;
         }
       }
   )

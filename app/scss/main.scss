@@ -36,6 +36,7 @@ body {
   letter-spacing: 0.1rem;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 .button_link {
@@ -151,9 +152,13 @@ h2, h3 {
 
   .button {
 
-    img {
+    .img_moon {
       width: 1.8rem;
       margin-right: 1rem;
+    }
+
+    .img_light {
+      display: none;
     }
   }
 }

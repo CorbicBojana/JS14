@@ -63,7 +63,8 @@ body {
   background-color: transparent;
   letter-spacing: 0.1rem;
   border: none;
-  outline: none; }
+  outline: none;
+  cursor: pointer; }
 
 .button_link {
   display: inline-block;
@@ -132,9 +133,11 @@ h2, h3 {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 1rem 0.1rem #858585; }
-  .header .button img {
+  .header .button .img_moon {
     width: 1.8rem;
     margin-right: 1rem; }
+  .header .button .img_light {
+    display: none; }
 
 .main {
   padding: 0 8rem; }
